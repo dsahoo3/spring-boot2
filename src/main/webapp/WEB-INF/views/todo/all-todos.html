@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>My Todos</h1>
+
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="todo: ${todos}">
+                <td th:text="${todo.task}"></td>
+                <td th:text="${todo.description}"></td>
+                <td><a th:href="@{/todo/update/{id}/(id=${todo.id})}" >Edit</a></td>
+                <td><a th:href="@{/todo/delete/{id}/(id=${todo.id})}" >Delete</a></td>
+            </tr>
+        </table>
+    </body>
+</html>
